@@ -1,0 +1,247 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #1a2639; /* 어두운 푸른색 배경 */
+    color: #e0e0e0;
+    -ms-overflow-style: none;  /* IE, Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+/* 웹킷 기반 브라우저 (Chrome, Safari 등) */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    background: #0f4c75; /* 더 진한 푸른색 헤더 */
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0.5rem;
+}
+
+nav ul li a {
+    color: #3282b8; /* 밝은 푸른색 링크 */
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #1b262c; /* 어두운 푸른색 호버 효과 */
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#subsidiaries ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+#subsidiaries li {
+    background-color: #0f4c75; /* 더 진한 푸른색 배경 */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 80px; /* 모든 박스의 높이를 동일하게 설정 */
+    display: flex; /* Flexbox 사용 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    padding: 1rem;
+}
+
+#subsidiaries li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+    background-color: #3282b8; /* 밝은 푸른색 호버 효과 */
+}
+
+/* 기본 스타일 */
+#menu-toggle {
+    display: none; /* 기본적으로 메뉴 아이콘을 숨김 */
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+#main-nav {
+    display: block; /* 기본적으로 네비게이션 메뉴 표시 */
+}
+
+/* 모바일 화면을 위한 미디어 쿼리 */
+@media screen and (max-width: 768px) {
+    #menu-toggle {
+        display: block; /* 모바일 화면에서만 메뉴 아이콘 표시 */
+    }
+
+    #main-nav {
+        display: none; /* 모바일 화면에서 기본적으로 네비게이션 메뉴 숨김 */
+    }
+
+    #main-nav.show {
+        display: block; /* JavaScript로 .show 클래스가 추가되면 메뉴 표시 */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.25rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    #subsidiaries ul {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #menu-toggle {
+        display: block; /* 모바일 화면에서만 메뉴 아이콘 표시 */
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    #main-nav {
+        display: none;
+    }
+
+    #main-nav.show {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    nav ul li a {
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+/* 기존 스타일 유지 */
+
+#hero {
+    background-image: url('images/bgp1024x1024.jpg');
+    background-attachment: fixed; /* 이 속성이 parallax 효과의 핵심입니다 */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; /* 뷰포트 높이만큼 설정 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    padding: 2rem;
+    border-radius: 10px;
+    z-index: 1; /* 내용이 배경 위에 오도록 합니다 */
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #3282b8;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #0f4c75;
+}
+
+/* 기타 스타일 유지 */
+
+
+/* 기존 스타일 유지 */
+
+footer {
+    background-color: #1a2639;
+    color: #ffffff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* 메인 콘텐츠와 푸터 사이에 간격을 주기 위한 스타일 */
+main {
+    min-height: calc(100vh - 100px); /* 푸터 높이에 따라 조정 */
+    padding-bottom: 2rem;
+}
+
