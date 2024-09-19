@@ -21,4 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const hero = document.getElementById('hero');
         hero.style.backgroundPositionY = scrollPosition * -0.5 + 'px';
     });
+
+    // 메뉴 로드
+    fetch('menu.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('menu-container').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading menu:', error));
 });
